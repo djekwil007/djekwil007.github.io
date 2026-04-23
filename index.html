@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Djékoré Philippe Wilfried – Statisticien & Data Analyst</title>
+<meta name="description" content="Portfolio de Djékoré Philippe Wilfried, étudiant ISE à l'ISSEA, spécialisé en statistiques, économétrie et suivi-évaluation."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --navy: #0D2137;
+  --navy-mid: #1A3A5C;
+  --blue: #2E6DA4;
+  --gold: #F0A500;
+  --gold-light: #FDF3DC;
+  --white: #FFFFFF;
+  --off-white: #F8F7F4;
+  --gray-100: #F0EEE9;
+  --gray-300: #C8C4BC;
+  --gray-500: #8A8680;
+  --gray-700: #3D3B38;
+  --text: #1C2B3A;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--off-white);
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 18px 48px;
+  background: rgba(248,247,244,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--gray-100);
+}
+.nav-logo {
+  font-family: 'DM Serif Display', serif;
+  font-size: 18px; color: var(--navy);
+}
+.nav-links { display: flex; gap: 32px; list-style: none; }
+.nav-links a {
+  font-size: 13px; font-weight: 400; color: var(--gray-500);
+  text-decoration: none; letter-spacing: 0.04em;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--navy); }
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  padding: 120px 48px 80px;
+  gap: 60px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute; top: -200px; right: -200px;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(240,165,0,0.08) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.hero-text { position: relative; z-index: 1; }
+
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 12px; font-weight: 500; letter-spacing: 0.12em;
+  color: var(--gold); text-transform: uppercase;
+  margin-bottom: 24px;
+}
+.hero-eyebrow::before {
+  content: ''; display: block;
+  width: 28px; height: 1px; background: var(--gold);
+}
+
+.hero h1 {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(36px, 4vw, 56px);
+  line-height: 1.15;
+  color: var(--navy);
+  margin-bottom: 24px;
+}
+
+.hero h1 em {
+  font-style: italic;
+  color: var(--blue);
+}
+
+.hero-desc {
+  font-size: 16px; line-height: 1.8;
+  color: var(--gray-500);
+  max-width: 480px;
+  margin-bottom: 40px;
+}
+
+.hero-tags {
+  display: flex; flex-wrap: wrap; gap: 10px;
+  margin-bottom: 40px;
+}
+.tag {
+  font-size: 12px; padding: 6px 14px;
+  border: 1px solid var(--gray-300);
+  border-radius: 99px;
+  color: var(--gray-700);
+  background: var(--white);
+}
+
+.hero-cta { display: flex; gap: 16px; flex-wrap: wrap; }
+
+.btn {
+  display: inline-block;
+  padding: 14px 28px;
+  font-size: 14px; font-weight: 500;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: all 0.2s;
+  cursor: pointer; border: none;
+}
+.btn-dark {
+  background: var(--navy); color: var(--white);
+}
+.btn-dark:hover { background: var(--navy-mid); transform: translateY(-1px); }
+.btn-outline {
+  background: transparent; color: var(--navy);
+  border: 1.5px solid var(--navy);
+}
+.btn-outline:hover { background: var(--navy); color: var(--white); }
+
+/* Hero photo side */
+.hero-visual {
+  display: flex; flex-direction: column;
+  align-items: center; gap: 32px;
+  position: relative;
+}
+
+.photo-frame {
+  position: relative;
+  width: 280px; height: 280px;
+}
+
+.photo-frame::before {
+  content: '';
+  position: absolute; top: 16px; left: 16px;
+  width: 100%; height: 100%;
+  border: 2px solid var(--gold);
+  border-radius: 4px;
+  z-index: 0;
+}
+
+.photo-frame img {
+  position: relative; z-index: 1;
+  width: 280px; height: 280px;
+  object-fit: cover;
+  border-radius: 4px;
+  filter: grayscale(20%);
+}
+
+.photo-placeholder {
+  position: relative; z-index: 1;
+  width: 280px; height: 280px;
+  border-radius: 4px;
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+  display: flex; align-items: center; justify-content: center;
+}
+.photo-initials {
+  font-family: 'DM Serif Display', serif;
+  font-size: 72px; color: rgba(255,255,255,0.15);
+  letter-spacing: -2px;
+}
+
+.stats-row {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 1px; background: var(--gray-300);
+  border: 1px solid var(--gray-300);
+  border-radius: 4px; overflow: hidden;
+  width: 100%;
+}
+.stat-box {
+  background: var(--white);
+  padding: 20px 16px; text-align: center;
+}
+.stat-n {
+  font-family: 'DM Serif Display', serif;
+  font-size: 32px; color: var(--navy);
+  display: block;
+}
+.stat-l {
+  font-size: 11px; color: var(--gray-500);
+  letter-spacing: 0.06em; text-transform: uppercase;
+  margin-top: 4px; display: block;
+}
+
+/* ── SECTIONS ── */
+section { padding: 96px 48px; }
+
+.section-header {
+  display: flex; align-items: baseline; gap: 20px;
+  margin-bottom: 56px;
+}
+.section-num {
+  font-family: 'DM Serif Display', serif;
+  font-size: 13px; color: var(--gold);
+  letter-spacing: 0.1em;
+}
+.section-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(28px, 3vw, 40px);
+  color: var(--navy); line-height: 1.2;
+}
+
+/* ── ABOUT ── */
+.about { background: var(--navy); }
+.about .section-title { color: var(--white); }
+.about .section-num { color: var(--gold); }
+
+.about-grid {
+  display: grid; grid-template-columns: 1.2fr 1fr;
+  gap: 80px; align-items: start;
+}
+.about-text {
+  font-size: 17px; line-height: 1.85;
+  color: rgba(255,255,255,0.75);
+}
+.about-text p + p { margin-top: 20px; }
+.about-text strong { color: var(--gold); font-weight: 500; }
+
+.about-details { display: flex; flex-direction: column; gap: 24px; }
+.detail-item { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; }
+.detail-label {
+  font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 8px;
+}
+.detail-value { font-size: 15px; color: rgba(255,255,255,0.85); }
+
+/* ── TIMELINE EXPERIENCES ── */
+.exp-section { background: var(--white); }
+
+.timeline { position: relative; }
+.timeline::before {
+  content: '';
+  position: absolute; left: 0; top: 0; bottom: 0;
+  width: 1px; background: var(--gray-100);
+}
+
+.tl-item {
+  display: grid; grid-template-columns: 200px 1fr;
+  gap: 48px; padding: 40px 0 40px 0;
+  border-bottom: 1px solid var(--gray-100);
+  position: relative;
+}
+.tl-item::before {
+  content: '';
+  position: absolute; left: -5px; top: 52px;
+  width: 10px; height: 10px;
+  border-radius: 50%; background: var(--gold);
+  border: 2px solid var(--white);
+  box-shadow: 0 0 0 2px var(--gold);
+}
+
+.tl-date {
+  font-size: 13px; color: var(--gray-500);
+  padding-top: 4px; text-align: right;
+  padding-right: 48px;
+}
+.tl-org {
+  font-size: 12px; color: var(--blue);
+  margin-top: 4px; text-align: right;
+  padding-right: 48px;
+  font-weight: 500;
+}
+.tl-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 22px; color: var(--navy);
+  margin-bottom: 12px;
+}
+.tl-desc {
+  font-size: 15px; line-height: 1.75;
+  color: var(--gray-500);
+}
+.tl-desc li { margin-left: 18px; margin-top: 8px; }
+.tl-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+.tl-pill {
+  font-size: 11px; padding: 4px 12px;
+  background: var(--gold-light); color: var(--navy-mid);
+  border-radius: 99px; font-weight: 500;
+}
+
+/* ── SKILLS ── */
+.skills-section { background: var(--off-white); }
+
+.skills-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.skill-card {
+  background: var(--white);
+  border: 1px solid var(--gray-100);
+  border-radius: 4px;
+  padding: 28px 24px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.skill-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(13,33,55,0.08);
+}
+.skill-icon {
+  width: 36px; height: 36px;
+  background: var(--gold-light);
+  border-radius: 4px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px; margin-bottom: 16px;
+}
+.skill-name {
+  font-weight: 500; font-size: 15px;
+  color: var(--navy); margin-bottom: 12px;
+}
+.skill-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.skill-tag {
+  font-size: 11px; padding: 3px 10px;
+  background: var(--gray-100); color: var(--gray-700);
+  border-radius: 99px;
+}
+
+/* ── PROJETS ── */
+.projects-section { background: var(--white); }
+
+.projects-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+.project-card {
+  border: 1px solid var(--gray-100);
+  border-radius: 4px; padding: 32px;
+  position: relative; overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(13,33,55,0.08);
+}
+.project-card::before {
+  content: ''; position: absolute;
+  top: 0; left: 0; right: 0; height: 3px;
+  background: var(--gold);
+}
+.project-num {
+  font-family: 'DM Serif Display', serif;
+  font-size: 48px; color: var(--gray-100);
+  position: absolute; top: 16px; right: 24px;
+  line-height: 1;
+}
+.project-cat {
+  font-size: 11px; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--blue);
+  margin-bottom: 12px; font-weight: 500;
+}
+.project-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 22px; color: var(--navy);
+  margin-bottom: 12px; line-height: 1.3;
+}
+.project-desc {
+  font-size: 14px; line-height: 1.75;
+  color: var(--gray-500); margin-bottom: 20px;
+}
+.project-tools { display: flex; flex-wrap: wrap; gap: 8px; }
+.project-tool {
+  font-size: 11px; padding: 4px 10px;
+  border: 1px solid var(--gray-300);
+  border-radius: 99px; color: var(--gray-700);
+}
+
+/* ── CERTIFS ── */
+.certif-section { background: var(--navy); }
+.certif-section .section-title { color: var(--white); }
+.certif-section .section-num { color: var(--gold); }
+
+.certif-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.certif-card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 4px; padding: 24px;
+}
+.certif-icon { font-size: 24px; margin-bottom: 12px; }
+.certif-name {
+  font-weight: 500; font-size: 14px;
+  color: var(--white); margin-bottom: 6px; line-height: 1.4;
+}
+.certif-org { font-size: 12px; color: rgba(255,255,255,0.45); }
+
+/* ── CONTACT ── */
+.contact-section { background: var(--off-white); }
+
+.contact-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 80px; align-items: start;
+}
+.contact-text {
+  font-size: 16px; line-height: 1.8; color: var(--gray-500);
+}
+.contact-text p + p { margin-top: 16px; }
+
+.contact-links { display: flex; flex-direction: column; gap: 16px; }
+.contact-link {
+  display: flex; align-items: center; gap: 16px;
+  padding: 20px 24px;
+  background: var(--white);
+  border: 1px solid var(--gray-100);
+  border-radius: 4px;
+  text-decoration: none;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.contact-link:hover {
+  border-color: var(--gold);
+  transform: translateX(4px);
+}
+.contact-link-icon {
+  width: 40px; height: 40px;
+  background: var(--gold-light);
+  border-radius: 4px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px; flex-shrink: 0;
+}
+.contact-link-label { font-size: 11px; color: var(--gray-500); text-transform: uppercase; letter-spacing: 0.08em; }
+.contact-link-value { font-size: 15px; color: var(--navy); font-weight: 500; }
+
+/* ── FOOTER ── */
+footer {
+  background: var(--navy); color: rgba(255,255,255,0.4);
+  text-align: center; padding: 32px 48px;
+  font-size: 13px;
+}
+footer strong { color: var(--gold); font-weight: 500; }
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.hero-text { animation: fadeUp 0.7s ease both; }
+.hero-visual { animation: fadeUp 0.7s 0.15s ease both; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  nav { padding: 16px 24px; }
+  .nav-links { display: none; }
+  .hero { grid-template-columns: 1fr; padding: 100px 24px 60px; }
+  .hero-visual { order: -1; }
+  .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+  .skills-grid { grid-template-columns: 1fr 1fr; }
+  .projects-grid { grid-template-columns: 1fr; }
+  .certif-grid { grid-template-columns: 1fr 1fr; }
+  .tl-item { grid-template-columns: 1fr; gap: 8px; }
+  .tl-date, .tl-org { text-align: left; padding-right: 0; }
+  section { padding: 64px 24px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <span class="nav-logo">Djékoré P.W.</span>
+  <ul class="nav-links">
+    <li><a href="#about">À propos</a></li>
+    <li><a href="#experience">Expériences</a></li>
+    <li><a href="#skills">Compétences</a></li>
+    <li><a href="#projects">Projets</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-text">
+    <div class="hero-eyebrow">Disponible – Stage & Opportunités</div>
+    <h1>Statisticien,<br><em>analyste de données</em><br>& économiste.</h1>
+    <p class="hero-desc">
+      Étudiant ISE à l'ISSEA de Yaoundé. Je transforme les données en décisions utiles — enquêtes terrain, modélisation statistique, suivi-évaluation. Tchad · Sénégal · Cameroun.
+    </p>
+    <div class="hero-tags">
+      <span class="tag">R · Python · SQL</span>
+      <span class="tag">STATA · SPSS</span>
+      <span class="tag">ODK · CSPro · KoboToolbox</span>
+      <span class="tag">Power BI</span>
+      <span class="tag">MEAL / Suivi-Évaluation</span>
+    </div>
+    <div class="hero-cta">
+      <a href="#contact" class="btn btn-dark">Me contacter</a>
+      <a href="#projects" class="btn btn-outline">Voir mes projets</a>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <div class="photo-frame">
+      <div class="photo-placeholder">
+        <span class="photo-initials">DPW</span>
+      </div>
+    </div>
+    <div class="stats-row">
+      <div class="stat-box">
+        <span class="stat-n">3</span>
+        <span class="stat-l">Pays</span>
+      </div>
+      <div class="stat-box">
+        <span class="stat-n">6</span>
+        <span class="stat-l">Mois stage</span>
+      </div>
+      <div class="stat-box">
+        <span class="stat-n">5+</span>
+        <span class="stat-l">Outils</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="section-header">
+    <span class="section-num">01 —</span>
+    <h2 class="section-title">À propos</h2>
+  </div>
+  <div class="about-grid">
+    <div class="about-text">
+      <p>Je m'appelle <strong>Djékoré Philippe Wilfried</strong>. Je suis tchadien, j'ai fait ma licence au <strong>Sénégal</strong>, et je suis aujourd'hui en cycle Ingénieur Statisticien Économiste à l'<strong>ISSEA de Yaoundé</strong>, Cameroun.</p>
+      <p>Mon parcours m'a appris une chose : les données n'ont de valeur que si elles servent à prendre de meilleures décisions. C'est ce qui m'oriente aujourd'hui vers <strong>l'évaluation des politiques publiques</strong>, le <strong>suivi-évaluation de projets</strong> et l'analyse économique appliquée.</p>
+      <p>J'ai travaillé sur des problèmes réels — marchés immobiliers, perception de l'assurance, gestion des déchets — avec des données imparfaites, dans des contextes contraints. C'est là que j'ai appris le plus.</p>
+    </div>
+    <div class="about-details">
+      <div class="detail-item">
+        <div class="detail-label">Formation actuelle</div>
+        <div class="detail-value">ISE 2ème Année — ISSEA, Yaoundé</div>
+      </div>
+      <div class="detail-item">
+        <div class="detail-label">Nationalité</div>
+        <div class="detail-value">Tchadienne</div>
+      </div>
+      <div class="detail-item">
+        <div class="detail-label">Langues</div>
+        <div class="detail-value">Français (natif) · Anglais (B1) · Arabe (notions)</div>
+      </div>
+      <div class="detail-item">
+        <div class="detail-label">Domaines d'intérêt</div>
+        <div class="detail-value">Suivi-évaluation · Politiques publiques · Data Science · Économie du développement</div>
+      </div>
+      <div class="detail-item">
+        <div class="detail-label">Contact</div>
+        <div class="detail-value">djekorewilfried@gmail.com</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPÉRIENCES -->
+<section class="exp-section" id="experience">
+  <div class="section-header">
+    <span class="section-num">02 —</span>
+    <h2 class="section-title">Expériences</h2>
+  </div>
+  <div class="timeline">
+
+    <div class="tl-item">
+      <div>
+        <div class="tl-date">Avril 2025</div>
+        <div class="tl-org">ISSEA-CEMAC<br>Yaoundé, Cameroun</div>
+      </div>
+      <div>
+        <div class="tl-title">Contrôleur d'Enquête</div>
+        <div class="tl-desc">
+          <ul>
+            <li>Contrôle qualité des données collectées par les enquêteurs sur le terrain.</li>
+            <li>Validation et rejet des questionnaires selon les protocoles d'enquête établis.</li>
+            <li>Vérification de l'intégrité des données et détection des anomalies.</li>
+          </ul>
+        </div>
+        <div class="tl-pills">
+          <span class="tl-pill">Contrôle qualité</span>
+          <span class="tl-pill">Intégrité des données</span>
+          <span class="tl-pill">Protocoles d'enquête</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div>
+        <div class="tl-date">Jan. – Juin 2024</div>
+        <div class="tl-org">DOLPH-STATS Consulting<br>Dakar, Sénégal</div>
+      </div>
+      <div>
+        <div class="tl-title">Stagiaire Data Analyst</div>
+        <div class="tl-desc">
+          <ul>
+            <li>Construction d'un baromètre du marché immobilier sénégalais par web scraping, traitement et visualisation des données.</li>
+            <li>Conduite d'une enquête quantitative sur la perception de l'assurance à Dakar : conception, terrain, analyse et restitution.</li>
+            <li>Analyse statistique sous R et Python avec rédaction de rapports synthétiques à destination des clients.</li>
+          </ul>
+        </div>
+        <div class="tl-pills">
+          <span class="tl-pill">Python</span>
+          <span class="tl-pill">R</span>
+          <span class="tl-pill">Web Scraping</span>
+          <span class="tl-pill">Enquête quantitative</span>
+          <span class="tl-pill">Power BI</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div>
+        <div class="tl-date">2024 – Présent</div>
+        <div class="tl-org">ISSEA<br>Yaoundé, Cameroun</div>
+      </div>
+      <div>
+        <div class="tl-title">Étudiant ISE — Ingénieur Statisticien Économiste</div>
+        <div class="tl-desc">
+          Formation d'excellence en statistiques, économétrie, analyse des politiques économiques, modélisation et bases de données.
+        </div>
+        <div class="tl-pills">
+          <span class="tl-pill">Économétrie</span>
+          <span class="tl-pill">Statistiques avancées</span>
+          <span class="tl-pill">Analyse économique</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div>
+        <div class="tl-date">2020 – 2023</div>
+        <div class="tl-org">UCAD<br>Dakar, Sénégal</div>
+      </div>
+      <div>
+        <div class="tl-title">Licence en Analyse Statistique et Économique</div>
+        <div class="tl-desc">Mention Bien. Formation solide en statistiques, probabilités, économie et méthodes quantitatives.</div>
+        <div class="tl-pills">
+          <span class="tl-pill">Mention Bien</span>
+          <span class="tl-pill">Statistiques</span>
+          <span class="tl-pill">Économie</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="skills-section" id="skills">
+  <div class="section-header">
+    <span class="section-num">03 —</span>
+    <h2 class="section-title">Compétences</h2>
+  </div>
+  <div class="skills-grid">
+    <div class="skill-card">
+      <div class="skill-icon">📊</div>
+      <div class="skill-name">Programmation & Analyse</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">R</span>
+        <span class="skill-tag">SQL</span>
+        <span class="skill-tag">VBA</span>
+        <span class="skill-tag">Pandas</span>
+        <span class="skill-tag">NumPy</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">📋</div>
+      <div class="skill-name">Collecte & Enquêtes</div>
+      <div class="skill-tags">
+        <span class="skill-tag">ODK</span>
+        <span class="skill-tag">CSPro</span>
+        <span class="skill-tag">KoboToolbox</span>
+        <span class="skill-tag">SurveyCTO</span>
+        <span class="skill-tag">Sphinx</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">📈</div>
+      <div class="skill-name">Statistiques & Économétrie</div>
+      <div class="skill-tags">
+        <span class="skill-tag">STATA</span>
+        <span class="skill-tag">SPSS</span>
+        <span class="skill-tag">Modélisation</span>
+        <span class="skill-tag">Tests statistiques</span>
+        <span class="skill-tag">Échantillonnage</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">🔍</div>
+      <div class="skill-name">Suivi-Évaluation (MEAL)</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Cadres logiques</span>
+        <span class="skill-tag">Indicateurs</span>
+        <span class="skill-tag">SERA</span>
+        <span class="skill-tag">Rapports S&E</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">🗺️</div>
+      <div class="skill-name">Visualisation & Reporting</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Power BI</span>
+        <span class="skill-tag">ggplot2</span>
+        <span class="skill-tag">Matplotlib</span>
+        <span class="skill-tag">Excel avancé</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">🤖</div>
+      <div class="skill-name">Machine Learning</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Scikit-learn</span>
+        <span class="skill-tag">Classification</span>
+        <span class="skill-tag">Régression</span>
+        <span class="skill-tag">Clustering</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJETS -->
+<section class="projects-section" id="projects">
+  <div class="section-header">
+    <span class="section-num">04 —</span>
+    <h2 class="section-title">Projets</h2>
+  </div>
+  <div class="projects-grid">
+    <div class="project-card">
+      <span class="project-num">01</span>
+      <div class="project-cat">Data Analytics</div>
+      <div class="project-title">Baromètre immobilier — Sénégal</div>
+      <div class="project-desc">Collecte automatisée des prix du marché immobilier dakarois par web scraping, nettoyage, traitement statistique et visualisation des tendances. Livré comme outil d'aide à la décision pour DOLPH-STATS Consulting.</div>
+      <div class="project-tools">
+        <span class="project-tool">Python</span>
+        <span class="project-tool">Scrapy</span>
+        <span class="project-tool">Pandas</span>
+        <span class="project-tool">Power BI</span>
+      </div>
+    </div>
+    <div class="project-card">
+      <span class="project-num">02</span>
+      <div class="project-cat">Enquête Quantitative</div>
+      <div class="project-title">Perception de l'assurance — Dakar</div>
+      <div class="project-desc">Conception du questionnaire, supervision terrain, traitement statistique et restitution des résultats d'une enquête sur la perception de l'assurance dans la région de Dakar.</div>
+      <div class="project-tools">
+        <span class="project-tool">R</span>
+        <span class="project-tool">ODK</span>
+        <span class="project-tool">STATA</span>
+        <span class="project-tool">Excel</span>
+      </div>
+    </div>
+    <div class="project-card">
+      <span class="project-num">03</span>
+      <div class="project-cat">Machine Learning</div>
+      <div class="project-title">Prédiction churn télécom</div>
+      <div class="project-desc">Classification 5 classes sur 50 000 observations dans un contexte de micro-crédit africain. Projet académique de groupe avec analyse exploratoire complète et modélisation supervisée.</div>
+      <div class="project-tools">
+        <span class="project-tool">Python</span>
+        <span class="project-tool">Scikit-learn</span>
+        <span class="project-tool">Pandas</span>
+        <span class="project-tool">Matplotlib</span>
+      </div>
+    </div>
+    <div class="project-card">
+      <span class="project-num">04</span>
+      <div class="project-cat">Contrôle qualité</div>
+      <div class="project-title">Enquête déchets — Yaoundé</div>
+      <div class="project-desc">Contrôle qualité terrain des données collectées dans le cadre d'une enquête institutionnelle ISSEA-CEMAC sur la gestion des déchets à Yaoundé. Validation, rejet et vérification d'intégrité.</div>
+      <div class="project-tools">
+        <span class="project-tool">CSPro</span>
+        <span class="project-tool">Excel</span>
+        <span class="project-tool">Protocoles d'enquête</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section class="certif-section">
+  <div class="section-header">
+    <span class="section-num">05 —</span>
+    <h2 class="section-title">Certifications</h2>
+  </div>
+  <div class="certif-grid">
+    <div class="certif-card">
+      <div class="certif-icon">🎯</div>
+      <div class="certif-name">Suivi, Évaluation, Redevabilité & Apprentissage (SERA/MEAL)</div>
+      <div class="certif-org">DisasterReady</div>
+    </div>
+    <div class="certif-card">
+      <div class="certif-icon">📊</div>
+      <div class="certif-name">Tableaux de bord interactifs — Power BI</div>
+      <div class="certif-org">Microsoft</div>
+    </div>
+    <div class="certif-card">
+      <div class="certif-icon">🤖</div>
+      <div class="certif-name">Initiation au Machine Learning</div>
+      <div class="certif-org">Formation certifiante</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="section-header">
+    <span class="section-num">06 —</span>
+    <h2 class="section-title">Contact</h2>
+  </div>
+  <div class="contact-grid">
+    <div class="contact-text">
+      <p>Je suis ouvert aux opportunités de stage, de collaboration et aux échanges professionnels dans les domaines de la statistique, de l'économie appliquée et du suivi-évaluation.</p>
+      <p>N'hésitez pas à me contacter directement par email ou sur LinkedIn.</p>
+    </div>
+    <div class="contact-links">
+      <a class="contact-link" href="mailto:djekorewilfried@gmail.com">
+        <div class="contact-link-icon">✉️</div>
+        <div>
+          <div class="contact-link-label">Email</div>
+          <div class="contact-link-value">djekorewilfried@gmail.com</div>
+        </div>
+      </a>
+      <a class="contact-link" href="tel:+237688600036">
+        <div class="contact-link-icon">📞</div>
+        <div>
+          <div class="contact-link-label">Téléphone</div>
+          <div class="contact-link-value">+237 688 60 0036</div>
+        </div>
+      </a>
+      <a class="contact-link" href="https://www.linkedin.com/in/djekore-philippewilfried/" target="_blank">
+        <div class="contact-link-icon">💼</div>
+        <div>
+          <div class="contact-link-label">LinkedIn</div>
+          <div class="contact-link-value">djekore-philippewilfried</div>
+        </div>
+      </a>
+      <a class="contact-link" href="#">
+        <div class="contact-link-icon">📍</div>
+        <div>
+          <div class="contact-link-label">Localisation</div>
+          <div class="contact-link-value">Yaoundé, Cameroun</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>Conçu & développé par <strong>Djékoré Philippe Wilfried</strong> · Yaoundé, 2026</p>
+</footer>
+
+</body>
+</html>
